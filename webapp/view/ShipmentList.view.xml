@@ -1,0 +1,51 @@
+<mvc:View controllerName="sap.ui.demo.basicTemplate.controller.ShipmentList" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
+	<Page id="shipmentListPage" title="{i18n>shipmentListPageTitle}" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<Table id="shipmentList" class="sapUiResponsiveMargin" width="auto" items="{shipment>/}" mode ="SingleSelectLeft">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>shipmentListTitle}"/>
+						<ToolbarSpacer/>
+						<SearchField width="50%" search="onFilterShipments"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column minScreenWidth="Small" demandPopin="true" width="7em">
+						<Text text="{i18n>columnID}"/>
+					</Column>
+					<Column>
+						<Text text="{i18n>columnProduct}"/>
+					</Column>
+					<Column minScreenWidth="Small" demandPopin="true">
+						<Text text="{i18n>columnStatus}"/>
+					</Column>
+					<Column minScreenWidth="Tablet" demandPopin="false">
+						<Text text="{i18n>columnFine}"/>
+					</Column>
+					<Column hAlign="End">
+						<Text text="{i18n>columnPrice}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Navigation" press="onShipmentDetailsPress">
+						<cells>
+							<ObjectNumber number="{shipment>ID}" emphasized="false"/>
+							<ObjectIdentifier title="{shipment>Product}"/>
+							<Text text="{path: 'shipment>Status'}"/>
+							<Text text="{path: 'shipment>Fine'}"/>
+							<ObjectNumber
+								number="{ parts: [{path: 'shipment>Price'}, {path: 'view>/currency'}], type: 'sap.ui.model.type.Currency', formatOptions: { showMeasure: false } }"
+								unit="{view>/currency}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<footer>
+			<Toolbar>
+				<ToolbarSpacer/>
+				<Button id="btnStatus" text="Изменить статус" type="Accept" press="changeStatusPress" visible="true"/>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>

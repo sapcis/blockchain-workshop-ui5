@@ -1,0 +1,14 @@
+{
+  "id": "NEWSHIP",
+  "product": "Apples",
+  "price": "100",
+  "fine": "10",
+  "status": "CREATED",
+  "range": [
+    {
+      "param": "Temp.",
+      "minValue": "10",
+      "maxValue": "24"
+    }
+  ]
+}

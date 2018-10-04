@@ -1,0 +1,47 @@
+<mvc:View height="100%" controllerName="sap.ui.demo.basicTemplate.controller.ShipmentDetails" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:viz="sap.viz.ui5.controls" xmlns:viz.data="sap.viz.ui5.data" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns="sap.m">
+	<Page id="shipmentDetailsPage" title="{i18n>shipmentDetailsPageTitle}" showNavButton="true" navButtonPress="onNavBack">
+		<content>
+			<ObjectHeader title="Shipment #{shipment>ID}" backgroundDesign="Solid">
+				<attributes>
+					<ObjectAttribute id="shipmentId" title="ID" text="{shipment>ID}"/>
+					<ObjectAttribute title="Product" text="{shipment>Product}"/>
+					<ObjectAttribute title="Price" text="{shipment>Price}"/>
+					<ObjectAttribute title="Fine" text="{shipment>Fine}"/>
+					<ObjectAttribute title="Parameter" text="{shipment>Range/0/Param}"/>
+					<ObjectAttribute title="MinValue x Maxvalue" text="{shipment>Range/0/MinValue} x {shipment>Range/0/MinValue}"/>
+				</attributes>
+				<statuses>
+					<ObjectStatus text="Status - {shipment>Status}" state="{path: 'shipment>Status', formatter : '.formatStatus' }"/>
+				</statuses>
+			</ObjectHeader>
+			<Table id="Logs" headerText="Logs" width="auto" class="sapUiResponsiveMargin" items="{logs>/values}">
+				<headerToolbar>
+					<Toolbar>
+						<content>
+							<Title id="tableHeader" text="Logs" level="H2"/>
+							<ToolbarSpacer/>
+						</content>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column id="timestamp">
+						<Text text="{i18n>columnTimestamp}"/>
+					</Column>
+					<Column id="measure" demandPopin="true">
+						<Text text="{i18n>columnMeasure}"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{path: 'logs>timestamp'}" />
+							<Text text="{logs>measure}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		
+	</Page>
+</mvc:View>

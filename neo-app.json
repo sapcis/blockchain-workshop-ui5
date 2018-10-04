@@ -1,0 +1,16 @@
+{
+	"welcomeFile": "/webapp/index.html",
+	"sendWelcomeFileRedirect": true,
+	"authenticationMethod": "none",
+	"routes": [ 
+		{
+		"path": "/blockchain_service",
+		"target": {
+			"type": "destination",
+			"name": "blockhain_service"
+		},
+		"description": "HF service"
+	}
+
+	]
+}

@@ -1,0 +1,36 @@
+<mvc:View
+        controllerName="sap.ui.demo.basicTemplate.controller.Overview"
+        xmlns="sap.m"
+        xmlns:mvc="sap.ui.core.mvc">
+
+    <Page id="overviewPage" title="{i18n>overviewPageTitle}">
+        <!--<headerContent>-->
+        <!--<Button-->
+        <!--icon="sap-icon://hello-world"-->
+        <!--press="onOpenDialog"/>-->
+        <!--<Input value="{/recipient/name}"-->
+        <!--description="Hello {/recipient/name}"-->
+        <!--valueLiveUpdate="true"-->
+        <!--width="60%"/>-->
+        <!--</headerContent>-->
+        <HBox fitContainer="true" justifyContent="Center" alignItems="Center">
+            <items>
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                             header="{i18n>newShipmentTileHeader}"
+                             subheader="{i18n>newShipmentTileSubheader}" press="onShipmentNewPress">
+                    <TileContent>
+                        <ImageContent src="sap-icon://add-document"/>
+                    </TileContent>
+                </GenericTile>
+                <GenericTile class="sapUiTinyMarginBegin sapUiTinyMarginTop tileLayout"
+                             header="{i18n>shipmentListTileHeader}"
+                             subheader="{i18n>shipmentListTileSubheader}" press="onShipmentListPress">
+                    <TileContent>
+                        <ImageContent src="sap-icon://list"/>
+                    </TileContent>
+                </GenericTile>
+            </items>
+        </HBox>
+    </Page>
+
+</mvc:View>

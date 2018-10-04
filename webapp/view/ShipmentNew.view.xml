@@ -1,0 +1,134 @@
+<mvc:View
+        controllerName="sap.ui.demo.basicTemplate.controller.ShipmentNew"
+        xmlns="sap.m"
+        xmlns:f="sap.ui.layout.form"
+        xmlns:l="sap.ui.layout"
+        xmlns:core="sap.ui.core"
+        xmlns:mvc="sap.ui.core.mvc">
+
+    <Page
+            id="shipmentNewPage"
+            title="{i18n>shipmentNewPageTitle}"
+            showNavButton="true"
+            navButtonPress="onNavBack">
+
+
+        <f:Form id="ShipmentNewForm"
+                editable="true"
+                ariaLabelledBy="Title1">
+            <f:toolbar>
+                <Toolbar id="TB1">
+                    <Title id="Title1" text="New Shipment" level="H4" titleStyle="H4"/>
+                </Toolbar>
+            </f:toolbar>
+            <f:layout>
+                <f:ResponsiveGridLayout
+                        labelSpanXL="4"
+                        labelSpanL="3"
+                        labelSpanM="4"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="0"
+                        emptySpanL="4"
+                        emptySpanM="0"
+                        emptySpanS="0"
+                        columnsXL="2"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false"/>
+            </f:layout>
+            <f:formContainers>
+
+                <f:FormContainer ariaLabelledBy="Title2">
+                    <f:toolbar>
+                        <Toolbar>
+                            <Title id="Title2" text="Main" level="H5" titleStyle="H5"/>
+                        </Toolbar>
+                    </f:toolbar>
+                    <f:formElements>
+                        <f:FormElement label="Shipment ID">
+                            <f:fields>
+                                <Input value="{id}" id="shipmentId"/>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Product">
+                            <f:fields>
+                                <Select width="100%" id="product" selectedKey="{product}">
+                                    <items>
+                                        <core:Item text="Bananas" key="Bananas"/>
+                                        <core:Item text="Apples" key="Apples"/>
+                                        <core:Item text="Pears" key="Pears"/>
+                                        <core:Item text="Oranges" key="Oranges"/>
+                                    </items>
+                                </Select>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Price / Fine">
+                            <f:fields>
+                                <Input value="{price}" id="price"/>
+                                <Input value="{fine}" id="fine">
+                                    <layoutData>
+                                        <l:GridData span="XL2 L2 M3 S4"/>
+                                    </layoutData>
+                                </Input>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Status">
+                            <f:fields>
+                                <Select width="100%" id="status" selectedKey="{status}">
+                                    <items>
+                                        <core:Item text="CREATED" key="CREATED"/>
+                                        <core:Item text="IN_TRANSIT" key="IN_TRANSIT"/>
+                                        <core:Item text="ARRIVED" key="ARRIVED"/>
+                                    </items>
+                                </Select>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+
+                <f:FormContainer ariaLabelledBy="Title3">
+                    <f:toolbar>
+                        <Toolbar>
+                            <Title id="Title3" text="Parameters" level="H5" titleStyle="H5"/>
+                        </Toolbar>
+                    </f:toolbar>
+                    <f:formElements>
+                        <f:FormElement label="Parameter">
+                            <f:fields>
+                                <Select width="100%" id="param" selectedKey="{range/0/param}">
+                                    <items>
+                                        <core:Item text="Temp." key="Temp."/>
+                                        <core:Item text="Humidity" key="Humidity"/>
+                                    </items>
+                                </Select>
+                            </f:fields>
+                        </f:FormElement>
+                        <f:FormElement label="Min. value / Max. value">
+                            <f:fields>
+                                <Input value="{range/0/minValue}" id="minvalue"/>
+                                <Input value="{range/0/maxValue}" id="maxvalue">
+                                    <layoutData>
+                                        <l:GridData span="XL2 L2 M3 S4"/>
+                                    </layoutData>
+                                </Input>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+
+            </f:formContainers>
+
+        </f:Form>
+        <footer>
+            <Toolbar width="100%" height="auto" design="Auto" enabled="true" visible="true">
+                <content>
+                    <ToolbarSpacer width=""/>
+                    <Button text="Create" type="Emphasized" iconFirst="true" width="auto" enabled="true"
+                            visible="true" iconDensityAware="false" press="onShipmentNewPress"/>
+                </content>
+            </Toolbar>
+        </footer>
+
+    </Page>
+</mvc:View>
